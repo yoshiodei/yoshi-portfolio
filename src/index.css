@@ -1,3 +1,9 @@
+:root {
+  --midPrimaryBg: #352d57;
+  --primaryBg: #3a315e;
+  --primaryColour: #e42850;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primaryBg) !important;
 }
 
 code {
@@ -12,6 +19,78 @@ code {
     monospace;
 }
 
+.bg-mid-primary{
+  background-color: var(--midPrimaryBg) !important;
+}
+
 .card-border-none {
   border: none !important;
+}
+
+.custom-main-section-padding {
+  padding-top: 7em;
+}
+
+.custom-main-section-hr {
+  height: 5px;
+  width: 300px;
+  background-color: var(--primaryColour);
+}
+
+.custom-text-primary {
+  color: var(--primaryColour) !important;
+}
+
+.btn-bd-primary {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--primaryColour);
+  --bs-btn-border-color: var(--primaryColour);
+  --bs-btn-border-radius: 0;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--primaryColour);
+  --bs-btn-hover-border-color: var(--primaryColour);
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: var(--primaryColour);
+  --bs-btn-active-border-color: var(--primaryColour);
+}
+
+.custom-card {
+ --bs-card-spacer-y: 1.5em;
+/*--bs-card-spacer-x: #{$card-spacer-x};
+--bs-card-title-spacer-y: #{$card-title-spacer-y}; */
+--bs-card-title-color: var(--primaryColour);
+--bs-card-subtitle-color: var(--primaryColour);
+--bs-card-border-width: 0;
+--bs-card-border-color: transparent;
+--bs-card-border-radius: 0;
+/* --bs-card-box-shadow: #{$card-box-shadow}; */
+--bs-card-inner-border-radius: 0;
+/* --bs-card-cap-padding-y: #{$card-cap-padding-y}; */
+/* --bs-card-cap-padding-x: #{$card-cap-padding-x}; */
+--bs-card-cap-bg: #fff;
+--bs-card-cap-color: #fff;
+--bs-card-height: auto;
+--bs-card-color: #fff;
+--bs-card-bg: #ffffff09;
+/* --bs-card-img-overlay-padding: #{$card-img-overlay-padding}; */
+/* --bs-card-group-margin: #{$card-group-margin}; */
+}
+
+.card-img-portrait {
+  /* height: 10px; */
+  height: 100%;
+}
+
+.card-img-landscape {
+  height: 45%;
+}
+
+.custom-card-image-div {
+  width: 100%;
+  height: 3.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
 }
