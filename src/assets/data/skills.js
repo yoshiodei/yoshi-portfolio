@@ -1,0 +1,89 @@
+const mongoDB = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAAH0CAYAAAApA1GfAAAACXBIWXMAAC4jAAAuIwF4pT92AAAGkGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuN2E3YTIzNiwgMjAyMS8wOC8xMi0wMDoyNToyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIyLjUgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMy0wMi0wOVQyMzo0MzowNy0wODowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMy0wMi0wOVQyMzo0MzowNy0wODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjMtMDItMDlUMjM6NDM6MDctMDg6MDAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjY3MzRlNDItMDRjNS1lNDRlLWI3YzgtYjY0OTA2ZTEzMGYyIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6Y2UxZWM1MGQtYTQ3Ni0zMjQxLWIxMjQtYmI2ODliM2IwZmZjIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6NGNlMTA1MmEtYzZmNi0yMDQ2LWFhZDItN2ZhOGNkZWEzY2NlIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo0Y2UxMDUyYS1jNmY2LTIwNDYtYWFkMi03ZmE4Y2RlYTNjY2UiIHN0RXZ0OndoZW49IjIwMjMtMDItMDlUMjM6NDM6MDctMDg6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMi41IChXaW5kb3dzKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NjY3MzRlNDItMDRjNS1lNDRlLWI3YzgtYjY0OTA2ZTEzMGYyIiBzdEV2dDp3aGVuPSIyMDIzLTAyLTA5VDIzOjQzOjA3LTA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuNSAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDxwaG90b3Nob3A6RG9jdW1lbnRBbmNlc3RvcnM+IDxyZGY6QmFnPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDo5ODA0ZmM2YS05MTlmLTExNDktYTk3Yi1hOWQxZjNhNTgwMWU8L3JkZjpsaT4gPC9yZGY6QmFnPiA8L3Bob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz49qQ1BAAAdC0lEQVR4nO3d34/Vx3nH8Xe26zU2oZsVXmFsAsaY4I3roirUQsiNkGUpiqKqSa973T8i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'
+
+
+export const skills = [
+    {
+        title: 'HTML',
+        image: './static/media/html.d8ee7c5d21c1a36589a3.png',
+        text: 'HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/HTML'
+    },
+    {
+        title: 'CSS',
+        image: './static/media/css.04035da37c525e1d473f.png',
+        text: 'Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/CSS'
+    },
+    {
+        title: 'Javascript',
+        image: './static/media/javascript.161cc188adbc17077c7c.png',
+        text: 'JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/JavaScript'
+    },
+    {
+        title: 'Bootstrap',
+        image: './static/media/bootstrap.200b880fabcaba47837a.png',
+        text: 'Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains HTML, CSS and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)'
+    },
+    {
+        title: 'Sass',
+        image: './static/media/sass.c09d99c753505fbc66af.png',
+        text: 'Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets. SassScript is the scripting language itself. Sass consists of two syntaxes. The original syntax, called "the indented syntax," uses a syntax similar to Haml.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/Sass_(stylesheet_language)'
+    },
+    {
+        title: 'React',
+        image: './static/media/react.d4c77a4e97913dece2af.png',
+        text: 'React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/React_(JavaScript_library)'
+    },
+    {
+        title: 'React Native',
+        image: './static/media/react.d4c77a4e97913dece2af.png',
+        text: 'React Native is an open-source UI software framework created by Meta Platforms, Inc. It is used to develop applications for Android, Android TV, iOS, macOS, tvOS, Web, Windows and UWP by enabling developers to use the React framework along with native platform capabilities.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/React_Native'
+    },
+    {
+        title: 'Firebase',
+        image: './static/media/firebase.a9037a39858aa7d344bc.png',
+        text: 'Firebase is a set of hosting services for any type of application. It offers NoSQL and real-time hosting of databases, content, social authentication, and notifications, or services, such as a real-time communication server.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/Firebase'
+    },
+    {
+        title: 'Node JS',
+        image: './static/media/nodejs.5675fa25483fb9928d7d.png',
+        text: 'Node.js is a cross-platform, open-source server environment that can run on Windows, Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment, runs on the V8 JavaScript Engine, and executes JavaScript code outside a web browser.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/Node.js'
+    },
+    {
+        title: 'Express JS',
+        image: './static/media/expresss.1071753edda04ed5cb82.png',
+        text: 'Express.js, or simply Express, is a back end web application framework for building RESTful APIs with Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js.',
+        isPortrait: false,
+        link: 'https://en.wikipedia.org/wiki/Express.js'
+    },
+    {
+        title: 'MongoDB',
+        image: mongoDB,
+        text: 'MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License which is deemed non-free by several distributions.',
+        isPortrait: true,
+        link: 'https://en.wikipedia.org/wiki/MongoDB'
+    },
+    {
+        title: 'Mongoose',
+        image: './static/media/mongoose.1bddc1c34077fdc7589a.png',
+        text: 'Mongoose is a JavaScript object-oriented programming library that creates a connection between MongoDB and the Node.js JavaScript runtime environment.',
+        isPortrait: false,
+        link: 'https://en.wikipedia.org/wiki/Mongoose_(MongoDB)'
+    },
+];
